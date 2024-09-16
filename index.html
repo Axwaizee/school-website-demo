@@ -196,9 +196,13 @@
             grid-auto-flow: column;
             overflow: auto;
             gap: 1em;
-            scrollbar-color: var(--body-text-color) var(--body-background-color);
-            scrollbar-width: thin;
         }
+
+        .gallery-images::-webkit-scrollbar{
+            display: none;
+        }
+
+
 
         .gallery-images img {
             object-fit: cover;
