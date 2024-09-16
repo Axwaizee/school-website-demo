@@ -86,7 +86,7 @@
             color: white;
             position: relative;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -97,7 +97,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
-        
+
         .hero-content {
             opacity: 1 !important;
             position: relative;
@@ -165,6 +165,53 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+
+
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+
+        /* Gallery Section */
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .gallery-images {
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto auto auto;
+            align-items: center;
+            justify-items: center;
+            padding-bottom: 2em;
+            grid-auto-flow: column;
+            overflow: auto;
+            gap: 1em;
+            scrollbar-color: var(--body-text-color) var(--body-background-color);
+            scrollbar-width: thin;
+        }
+
+        .gallery-images img {
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+
+        @media(max-width: 610px) {
+            .gallery-images img {
+                width: calc(50dvw - 2rem);
+            }
+        }
+
 
         /* Programs section styles */
         .programs {
@@ -378,6 +425,32 @@
             </div>
         </section>
 
+        <section id="gallery" class="gallery">
+        <h2>Media Gallery</h2>
+        <div class="gallery-images">
+            <img class="slide-in" src="./images/Gallery/image (1).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (2).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (3).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (4).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (5).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (6).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (7).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (8).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (9).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (10).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (11).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (12).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (5).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (6).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (7).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (8).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (9).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (10).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (11).jpeg" alt="">
+            <img class="slide-in" src="./images/Gallery/image (12).jpeg" alt="">
+        </div>
+        </section>
+
         <section id="programs" class="programs">
             <h2>Our Programs</h2>
             <div class="program-cards">
@@ -453,38 +526,38 @@
         });
 
         // Register GSAP ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
-    // GSAP animation for all .slide-in elements
-    gsap.utils.toArray('.slide-in').forEach(element => {
-        gsap.fromTo(element, 
-            {
-                y: 50,
-                opacity: 0
-            },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: element,
-                    start: "top 80%", // When the top of the element hits 80% of the viewport height
-                    end: "bottom 20%", // When the bottom of the element hits 20% of the viewport height
-                    toggleActions: "play none none none", // Play animation once, do nothing on other actions
-                    scrub: false // Disable scrubbing if the animation appears to move too fast
+        // GSAP animation for all .slide-in elements
+        gsap.utils.toArray('.slide-in').forEach(element => {
+            gsap.fromTo(element,
+                {
+                    y: 50,
+                    opacity: 0
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%", // When the top of the element hits 80% of the viewport height
+                        end: "bottom 20%", // When the bottom of the element hits 20% of the viewport height
+                        toggleActions: "play none none none", // Play animation once, do nothing on other actions
+                        scrub: false // Disable scrubbing if the animation appears to move too fast
+                    }
                 }
-            }
-        );
-    });
+            );
+        });
 
-    // GSAP animation for hero content
-    gsap.from('.hero-content', {
-        y: 50,
-        opacity: 1,
-        duration: 1.5,
-        ease: 'power2.out',
-        delay: 0.5
-    });
+        // GSAP animation for hero content
+        gsap.from('.hero-content', {
+            y: 50,
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.out',
+            delay: 0.5
+        });
     </script>
 </body>
 
